@@ -33,7 +33,7 @@ func (c2 Controller) Create(c *gin.Context) {
 		c.String(http.StatusInternalServerError, err.Error())
 		return
 	}
-	c.JSON(http.StatusCreated, resp)
+	c.JSON(http.StatusOK, resp)
 	return
 }
 
