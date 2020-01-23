@@ -28,7 +28,7 @@ func (s *Server) SetUpRouting() error {
 	//s.Router.Use(middleware.AuthMiddleware())
 	v1 := s.Router.Group("/v1")
 	{
-		v1.GET("/user/get", nil)
+		v1.GET("/user/get", s.UserCtrl.Get)
 		v1.POST("/user/create", s.UserCtrl.Create)
 		v1.PUT("/user/update", nil)
 	}

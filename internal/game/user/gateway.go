@@ -8,6 +8,7 @@ import (
 type (
 	Repository interface{
 		Create(user User) error
+		Get(token string) (*User, error)
 	}
 	Gateway    struct{
 		mysql.IMySQLDriver
@@ -23,4 +24,12 @@ func (g *Gateway) Create(user User) error {
 		return fmt.Errorf("call gorm create user %w", err)
 	}
 	return nil
+}
+
+func (g *Gateway) Get(token string) (*User, error) {
+	user := &User{}
+	if err := g.IMySQLDriver.GetGorm().Where("token = ?", token).First(user).Error; err != nil {
+		return nil, err
+	}
+	return user, nil
 }

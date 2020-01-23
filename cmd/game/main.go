@@ -19,7 +19,8 @@ func main() {
 	log.Printf("info: create user table\n")
 	userGateway := user.NewGateway(mysqlDriver)
 	userCreateInteractor := user.NewCreateInteractor(userGateway)
-	userCtrl := user.NewUserController(userCreateInteractor)
+	userGetInteractor := user.NewGetInteractor(userGateway)
+	userCtrl := user.NewUserController(userCreateInteractor, userGetInteractor)
 	s := server.NewServer(userCtrl)
 	if err := s.Run(); err != nil {
 		log.Fatalln(err)
