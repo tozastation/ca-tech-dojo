@@ -1,0 +1,12 @@
+
+.idea/.gitignore
+.idea/ca-tech-dojo.iml
+.idea/dictionaries/
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+config/game.rsa
+config/game.rsa.pub
+config/game.rsa.pub.pkcs8
+go.mod
+go.sum

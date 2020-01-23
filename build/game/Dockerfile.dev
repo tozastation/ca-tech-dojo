@@ -1,0 +1,6 @@
+FROM golang:1.13.4-alpine
+WORKDIR /app
+COPY . .
+RUN apk add --no-cache git && go get gopkg.in/urfave/cli.v2@master && go get github.com/oxequa/realize
+EXPOSE 3001
+CMD ["realize","start","--name=game","--run","--server"]

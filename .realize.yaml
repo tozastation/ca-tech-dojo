@@ -1,0 +1,23 @@
+settings:
+  legacy:
+    force: false
+    interval: 0s
+schema:
+  - name: game
+    path: .
+    commands:
+      install:
+        status: true
+        dir: cmd/game
+      run:
+        status: true
+        method: /go/bin/game
+    watcher:
+      extensions:
+        - go
+      paths:
+        - /
+      ignored_paths:
+        - .git
+        - .realize
+        - vendor
