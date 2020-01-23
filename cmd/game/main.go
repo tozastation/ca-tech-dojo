@@ -20,7 +20,8 @@ func main() {
 	userGateway := user.NewGateway(mysqlDriver)
 	userCreateInteractor := user.NewCreateInteractor(userGateway)
 	userGetInteractor := user.NewGetInteractor(userGateway)
-	userCtrl := user.NewUserController(userCreateInteractor, userGetInteractor)
+	userUpdateInteractor := user.NewUpdateInteractor(userGateway)
+	userCtrl := user.NewUserController(userCreateInteractor, userGetInteractor, userUpdateInteractor)
 	s := server.NewServer(userCtrl)
 	if err := s.Run(); err != nil {
 		log.Fatalln(err)

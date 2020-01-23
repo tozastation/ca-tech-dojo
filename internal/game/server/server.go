@@ -30,7 +30,7 @@ func (s *Server) SetUpRouting() error {
 	{
 		v1.GET("/user/get", s.UserCtrl.Get)
 		v1.POST("/user/create", s.UserCtrl.Create)
-		v1.PUT("/user/update", nil)
+		v1.PUT("/user/update", s.UserCtrl.Update)
 	}
 	return nil
 }
